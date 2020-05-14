@@ -1,4 +1,4 @@
-# Folders to ignore, whatever the place they are:
+# Folders to ignore, whatever the place they are::
  .metadata/
 /target/
 /doc/
