@@ -9,7 +9,7 @@ package jtm.activity03;
 public class BlackKnight {
 	// Class variables which are shared between all class members (objects)
 	public static short totalKnights; // total number of knights at the start of
-										// the battle
+	// the battle
 	public static short aliveKnights; // total number of alive knights
 	public static short deadKnights; // total number of dead knights
 	public static BlackKnight[] knights; // array of knights in the battle
@@ -20,47 +20,88 @@ public class BlackKnight {
 	public boolean alive; // is knight alive
 
 	public static void setBattle(int initialNumber) {
-		Array - knights// TODO initialize array of knights with the passed size.
-		// Reset total numbers of total and alive knights to zero
+	knights = new BlackKnight [initialNumber]; // TODO initialize array of knights with the passed size.
+	totalKnights = 0; // Reset total numbers of total and alive knights to zero
+	aliveKnights = 0;
 	}
 
 	public BlackKnight(String name) {
-		// TODO set name of newly created knight
-		// 1. set proper count of his arms, legs and head,
-		// 2. set his status to alive
-		// 3. put reference of this knight into next free cell of knights static
-		// array
-		// 4. increase number of total and alive knights of static counters
-		// HINT: use "this.name" to access name of knight which otherwise is shadowed
-		// by parameter of constructor, which is also called "name"
+	// TODO set name of newly created knight
+		this.name = name;
+	// 1. set proper count of his arms, legs and head,
+		arms = 2;
+		legs = 2;
+		head = 1;
+	// 2. set his status to alive
+	alive = true;
+		// 3. put reference of this knight into next free cell of knights static array
+		knights [totalKnights] = this;
+	// 4. increase number of total and alive knights of static counters
+	// HINT: use "this.name" to access name of knight which otherwise is shadowed
+	// by parameter of constructor, which is also called "name"
+	totalKnights++;
+	aliveKnights++;
 	}
 
 	public String cutOffArm() {
-		// TODO handle cutting off knight's arms in following way:
-		// If knight is dead, return "Only chicken beats dead!"
-		// If knight has some arms, cut one off and return "Bugger!"
-		// Else return just "Haah!"
-		return "";
+	// TODO handle cutting off knight's arms in following way:
+	// If knight is dead, return "Only chicken beats dead!"
+	// If knight has some arms, cut one off and return "Bugger!"
+	// Else return just "Haah!"
+	if(alive == false){
+		return “Only chicken beats dead!”;
+	}else if(arms>0){
+		arms--;
+		return “Bugger!”;
+	}
+	return "Haah!";
 	}
 
 	public String cutOffLeg() {
-		// TODO handle cutting off legs knight's legs in following way:
-		// If knight is dead, return "Only chicken beats dead!"
-		// If knight has some legs, cut one off and return "Bollocks!"
-		// Else return just "Haah!"
-		return "";
+	// TODO handle cutting off legs knight's legs in following way:
+	// If knight is dead, return "Only chicken beats dead!"
+	// If knight has some legs, cut one off and return "Bollocks!"
+	// Else return just "Haah!"
+	if(!alive){
+		return “Only chicken beats dead!”;
+	}else if(legs>0){
+		legs--;
+		return “Bollocks!”;
+	}
+	return "Haah!";
 	}
 
 	public String cutOffHead() {
-		// TODO handle cutting off knight's head in following way:
-		// If knight is dead, return "Only chicken beats dead!"
-		// If knight is alive and has head, cut it off and update
-		// number of total alive and dead knights and then
-		// If there are other knights alive return:
-		// "You'l newer win! Arthur, Cnut will still fight!"
-		// Where "Arthur, Cnut" are names of still alive knights
-		// Else return "You'l burn in hell forever!"
-		return "";
+	// TODO handle cutting off knight's head in following way:
+	// If knight is dead, return "Only chicken beats dead!"
+	// If knight is alive and has head, cut it off and update
+	// number of total alive and dead knights and then
+	// If there are other knights alive return:
+	// "You'l newer win! Arthur, Cnut will still fight!"
+	// Where "Arthur, Cnut" are names of still alive knights
+	// Else return "You'l burn in hell forever!"
+	String knightNames  = “”;
+	if(!alive){
+		return “Only chicken beats dead!”;
+	}else if(head ==1){
+		head--;
+		alive = false;
+		aliveKnights--;
+		}
+		
+		if(aliveKnights>0){
+			for(BlackKnight knight : knights){
+		if(knight.alive){
+			knightNames +- knight.name + “, “;
+		}
 	}
 
+		String knightNamesNew = knightNames.substring(0, knightNames.length()-2);
+
+			return “ You'll newer win! “ + knightNamesNew + “  will still fight!”;
+	}else{
+			return " You'll burn in hell forever!";
+		}
+
+	}
 }
