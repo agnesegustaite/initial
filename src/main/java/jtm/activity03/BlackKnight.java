@@ -20,7 +20,7 @@ public class BlackKnight {
 	public boolean alive; // is knight alive
 
 	public static void setBattle(int initialNumber) {
-		// TODO initialize array of knights with the passed size.
+		Array - knights// TODO initialize array of knights with the passed size.
 		// Reset total numbers of total and alive knights to zero
 	}
 
