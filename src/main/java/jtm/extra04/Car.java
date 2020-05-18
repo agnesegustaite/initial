@@ -14,3 +14,4 @@ public class Car {
 
 	// TODO #2 generate public getters of all object properties
 }
+
