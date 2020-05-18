@@ -9,6 +9,8 @@ public class Car {
 
 	// TODO #1 generate public constructor which takes all properties of an
 	// object as parameters
+	
+	
 
 	// TODO #2 generate public getters of all object properties
 }
