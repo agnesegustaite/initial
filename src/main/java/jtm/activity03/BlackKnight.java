@@ -54,7 +54,9 @@ public class BlackKnight { //constructor
 	// If knight has some arms, cut one off and return "Bugger!"
 	// Else return just "Haah!"
 		
+	String message "Haah!" {
 		
+	}
 	if(alive == false){
 		String chicken;
 		return “Only chicken beats dead!”;
