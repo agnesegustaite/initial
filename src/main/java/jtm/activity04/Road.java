@@ -1,29 +1,32 @@
 package jtm.activity04;
 
 public class Road {
+	
 	private String from; // Start point
 	private String to; // End point
 	private int distance; // distance in km
+	
 
 	/*- TODO #1
 	 * Select menu Source — Generate Constructor using Fields...
 	 * and create constructor which sets from, to and distance
 	 * values of the newly created object
 	 */
-	
-	public Road(String from, String to, int distance) {
-		super();
+	public Road (String from, String to, int distance) {
 		this.from = from;
 		this.to = to;
 		this.distance = distance;
-	}
 	
+	}
 	/*- TODO #2
 	 * Create constructor without parameters, which sets empty
 	 * values or 0 to all object properties
 	 */
-	public Road() {
-		super();
+		
+	public Road () {
+	from = null;
+	to = null;
+	distance = 0;
 	}
 	
 	/*- TODO #3
@@ -64,10 +67,9 @@ public class Road {
 	 * Note that — is not dash ("minus key" in jargon), but m-dash!
 	 * See more at: https://en.wikipedia.org/wiki/Dash
 	 */
-	
 	@Override
 	public String toString() {
-		return "Road [from=" + from + ", to=" + to + ", distance=" + distance + " ]";
+		return from + " — " + to + ", " + distance + "km";
 	}
-
+	
 }
