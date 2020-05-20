@@ -9,7 +9,7 @@ public class Amphibia extends Transport {
 
 	//Make all internal properties of Amphibia private.
 	private byte numberOfSails;
-	private int numberOfWheels;
+	private int numberOfWheels;   
 	
 	//implement constructor Amphibia(String id, float consumption, int tankSize, byte sails, int wheels)
 	public Amphibia(String id, float consumption, int tankSize, byte numberOfSails, int numberOfWheels) {
