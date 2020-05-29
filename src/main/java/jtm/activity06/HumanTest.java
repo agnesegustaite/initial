@@ -45,7 +45,6 @@ public class HumanTest extends JTMTest {
 	public void test03EatAndVomit() {
 		this.human = new Human();
 		byte expectedWeightb = 2;
-
 		try {
 			int expectedWeight = expectedWeightb + this.food;
 			this.human.eat(this.food);
@@ -79,3 +78,4 @@ public class HumanTest extends JTMTest {
 
 	}
 }
+

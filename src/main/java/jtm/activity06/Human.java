@@ -1,35 +1,85 @@
 package jtm.activity06;
 
+
 public class Human implements Humanoid {
 
+	private int stomach = 0;
+	private int weight = BirthWeight;
+	private int vomit = 0;
+	private boolean isAlive = true;
+
+	public Human() {} 
+	
 	@Override
 	public void eat(Integer food) {
-		// TODO Auto-generated method stub
+	
+		if(stomach == 0) {
+			stomach += food;
+			weight += food;
+		}
+	}
+	
 
+	@Override
+	public Integer vomit() {
+		vomit = stomach;
+		if(stomach != 0) {
+		weight -= stomach;
+		stomach = 0;
+		}
+		return vomit;
 	}
 
 	@Override
-	public Object vomit() {
-		// TODO Auto-generated method stub
-		return null;
+	public String isAlive() { 
+		if(isAlive == true) {
+		return "Alive";
+		} else {
+		return "Dead";
+		}			
 	}
-
-	@Override
-	public String isAlive() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public String killHimself() {
-		// TODO Auto-generated method stub
-		return null;
+		isAlive = false;
+		return "Dead";	
 	}
 
+	
+ 
 	@Override
 	public int getWeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		weight = Humanoid.BirthWeight + stomach;
+		return weight;	
+	}
+	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + ": " + getWeight()  +" ["+ stomach +"]";
+	}
+	
+
+	public int getStomach() {
+		return stomach;
 	}
 
+	public void setStomach(int stomach) {
+		this.stomach = stomach;
+	}
+
+	public int getVomit() {
+		return vomit;
+	}
+
+	public void setVomit(int vomit) {
+		this.vomit = vomit;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public void setAlive(boolean isAlive) {
+		this.isAlive = isAlive;
+	}
 }

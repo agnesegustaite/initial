@@ -1,4 +1,4 @@
-package jtm.activity05;
+package jtm.activity04;
 
 import jtm.activity04.Road;
 import jtm.activity04.Transport;

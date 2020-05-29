@@ -1,41 +1,92 @@
 package jtm.activity06;
 
+import java.util.ArrayList;
+
 public class Martian implements Humanoid, Alien, Cloneable {
+	
+	private int weight = 0;
+	Object vomit = null;
+	ArrayList<Object> contenOfStomach = new ArrayList<Object> ();
 
 	@Override
-	public void eat(Object item) {
-		// TODO Auto-generated method stub
+    public Object clone() throws CloneNotSupportedException {
+    return clone(this);
+	}
+	
+	private Object clone(Object current) throws CloneNotSupportedException { 
+	return super.clone();
 
 	}
+	
 
+	
+	/**
+	 * @param If Alien is hungry (stomach is empty), eat Object. Possibly eaten
+	 *           items are:
+	 * 
+	 *           1. Integer, 2. Humanoid, 3. Alien.
+	 * 
+	 *           Gain weight of eaten item, and kill it, if possible
+	 */
+	
+	
 	@Override
 	public void eat(Integer food) {
-		// TODO Auto-generated method stub
-
+		if (food instanceof Integer) {
+			contenOfStomach.add(food);
+			weight = getWeight();
+		}
+		
 	}
-
+	@Override
+	public void eat(Object item) {
+		
+		if (item instanceof Human) {
+		weight = ((Human) item).getWeight();
+		 contenOfStomach.add(item);
+		 ((Human) item).killHimself();
+		
+		} else if (item instanceof Alien) {
+		weight = ((Martian) item).getWeight();
+		contenOfStomach.add(item);	
+		}
+	}
+	
 	@Override
 	public Object vomit() {
-		// TODO Auto-generated method stub
-		return null;
+
+		if (contenOfStomach.equals(null)) {
+			 return null;
+		} else {
+			vomit = contenOfStomach;
+			contenOfStomach.clear();
+	}
+		return vomit;
 	}
 
 	@Override
 	public String isAlive() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return "I AM IMMORTAL!";
 	}
 
 	@Override
 	public String killHimself() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return "I AM IMMORTAL!";
 	}
 
 	@Override
 	public int getWeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		weight = Alien.BirthWeight + weight;
+		return weight;
 	}
+	
+	@Override
+	public String toString() {
+		
+		return getClass().getSimpleName() + ": " + weight + " " + contenOfStomach; 
+	}
+	
 
 }

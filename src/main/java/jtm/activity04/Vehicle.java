@@ -1,7 +1,9 @@
-package jtm.activity05;
+
+package jtm.activity04;
 
 import jtm.activity04.Road;
 import jtm.activity04.Transport;
+
 
 //Create class Vehicle as subclass of Transport
 public class Vehicle extends Transport {
