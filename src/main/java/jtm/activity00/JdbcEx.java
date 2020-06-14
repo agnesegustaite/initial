@@ -18,7 +18,7 @@ public class JdbcEx {
 
 class ClassesManager {
 
-	protected Connection conn;
+	protected Connection conn; 
 	
 	public ClassesManager() {
 		// TODO #1 When new TeacherManager is created, create connection to the
