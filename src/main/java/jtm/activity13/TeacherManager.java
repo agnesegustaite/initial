@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
 public class TeacherManager {
 
 	protected Connection conn;
-
+	private static Logger log = Logger.getLogger(TeacherManager.class);
 
 	public TeacherManager() {
 		// TODO #1 When new TeacherManager is created, create connection to the
@@ -26,8 +26,18 @@ public class TeacherManager {
 		// for tests need to be executed server-wise, not just database-wise.
 		// 2. Set AutoCommit to false and use conn.commit() where necessary in
 		// other methods
+		
+		if (conn == null) {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				conn = DriverManager.getConnection("jdbc:mysql://localhost/?autoReconnect=true&useSSL=false", "root", "Student007");
+				conn.setAutoCommit(false);
+			} catch (Exception e) {
+				log.debug(e.getMessage());
+			}
+		}
 	}
-
+	
 	/**
 	 * Returns a Teacher instance represented by the specified ID.
 	 * 
@@ -35,6 +45,7 @@ public class TeacherManager {
 	 *            the ID of teacher
 	 * @return a Teacher object
 	 */
+	
 	public Teacher findTeacher(int id) {
 		// TODO #2 Write an sql statement that searches teacher by ID.
 		// If teacher is not found return Teacher object with zero or null in
@@ -60,6 +71,9 @@ public class TeacherManager {
 		// Note that search results of partial match
 		// in form ...like '%value%'... should be returned
 		// Note, that if nothing is found return empty list!
+		
+		//SELECT * FROM database_activity.Teacher;
+		//where firstname = 'Anna"  and lastname = 'Tress';
 		return null;
 
 	}
@@ -76,6 +90,7 @@ public class TeacherManager {
 
 	public boolean insertTeacher(String firstName, String lastName) {
 		// TODO #4 Write an sql statement that inserts teacher in database.
+		//insert into database_activity.clases (id, name) VALUES (4, 'Geometry'); //clases kkas cits
 		return false;
 	}
 
@@ -102,6 +117,9 @@ public class TeacherManager {
 		boolean status = false;
 		// TODO #6 Write an sql statement that updates teacher information.
 		return false;
+		
+		//update database_activity.clases set name = 'Geo' - tikai tas var but
+		//where id=5
 	}
 
 	/**
@@ -115,6 +133,8 @@ public class TeacherManager {
 	public boolean deleteTeacher(int id) {
 		// TODO #7 Write an sql statement that deletes teacher from database.
 		return false;
+		//delete FROM database_activity.clases
+		//where id = 5
 	}
 
 	public void closeConnecion() {

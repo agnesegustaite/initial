@@ -82,3 +82,4 @@ public class StreamEditor {
 		// and writer
 	}
 }
+//TODO: test
